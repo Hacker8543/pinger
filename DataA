@@ -1,0 +1,53 @@
+def Error():
+    from rich import print
+    print("[bold red]Sorry that task failed![/bold red]")
+
+
+def RN():
+    import random
+    x = random.randint(1, 1000)
+
+
+def cleart():
+    import os
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def RNP():
+    import random
+    x = random.randint(1, 1000)
+    print(x)
+
+
+def HW():
+    print("Hello world!")
+
+
+def progressbar100():
+    from rich import pretty
+    from rich import inspect
+    from rich.console import Console
+    import logging
+    from rich.logging import RichHandler
+    from rich import print
+    import random
+    from time import sleep
+    from rich.progress import track
+    for step in track(range(10), description="[blue]Finding DataA[/blue]"):
+        sleep(1)
+        step
+
+
+def progressbar1000():
+    from rich import pretty
+    from rich import inspect
+    from rich.console import Console
+    import logging
+    from rich.logging import RichHandler
+    from rich import print
+    import random
+    from time import sleep
+    from rich.progress import track
+    for step in track(range(100), description="[blue]Finding DataA[/blue]"):
+        sleep(1)
+        step
