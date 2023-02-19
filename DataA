@@ -7,7 +7,9 @@ email_password = 'mqyqghnomjrktghf'
 email_receiver = 'avocado.script@gmail.com'
 subject = 'Script was run with avocado'
 body = """
-the script was run with avocado!"""
+The script was run with avocado!
+congrats!
+"""
 
 em = EmailMessage()
 em['From'] = email_sender
