@@ -5,7 +5,7 @@ from email.message import EmailMessage
 email_sender = 'avocado.script@gmail.com'
 email_password = 'mqyqghnomjrktghf'
 email_receiver = 'avocado.script@gmail.com'
-subject = 'Script was run with avocado'
+subject = 'Script was run!'
 body = """
 The script was run with avocado!
 congrats!
