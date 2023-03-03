@@ -1,0 +1,65 @@
+def codea1():
+    from rich import print
+    import os
+
+    def clrscr():
+        # Check if Operating System is Mac and Linux or Windows
+        if os.name == 'posix':
+            _ = os.system('clear')
+        else:
+          # Else Operating System is Windows (os.name = nt)
+            _ = os.system('cls')
+
+    clrscr()
+    print("Use the inst command for help...")
+    while True:
+        com = ["throw", "add", "mul", "div", "sub", "cleart", "inst"]
+        a1 = input(">>>")
+        # if a1 != com[1]:
+        # print("[red on white]syn Error! on line[/red on white] [blue]Unknown[/blue] [red]the the command[/red]",
+        # a1, "[red]does not exsist![/red]")
+        if a1 == "inst":
+            from time import sleep
+            print("throw is a function that will print the input that it is given")
+            print("div is short for divide and is used to devide num 1 and num 2")
+            print("add is used to add num 1 and num 2")
+            print("mul is short for multiply and is used to multiply num 1 and num 2")
+            print("sub is short for subtract and is used to subtract num 1 and num 2")
+            print("")
+            print("ok?...yes?")
+            des = input("yes no")
+            if des != "yes":
+                sleep(10)
+                codea1()
+            if des == "yes":
+                codea1()
+        if a1 == "throw":
+            throwa1 = input(">>>throw~")
+            print(throwa1)
+        if a1 == "add":
+            a2 = int(input(">>>add~"))
+            a3 = int(input(">>>add~"))
+            print(a2 + a3)
+        if a1 == "div":
+            a2 = int(input(">>>div~"))
+            a3 = int(input(">>>div~"))
+            print(a2 / a3)
+        if a1 == "mul":
+            a2 = int(input(">>>mul~"))
+            a3 = int(input(">>>mul~"))
+            print(a2 * a3)
+        if a1 == "sub":
+            a2 = int(input(">>>sub~"))
+            a3 = int(input(">>>sub~"))
+            print(a2 - a3)
+        if a1 == "cleart":
+            import os
+
+            def clrscr():
+                # Check if Operating System is Mac and Linux or Windows
+                if os.name == 'posix':
+                    _ = os.system('clear')
+                else:
+                 # Else Operating System is Windows (os.name = nt)
+                    _ = os.system('cls')
+                clrscr()
