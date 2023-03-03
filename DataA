@@ -1,3 +1,39 @@
+from rich.table import Table
+from rich.console import Console
+import time
+import pygame
+import keyboard
+import rich as rich
+from rich import print
+import smtplib
+import ssl
+from email.message import EmailMessage
+from rich import print
+import sys
+
+
+def emailer():
+    email_sender = 'avocado.script@gmail.com'
+    email_password = 'mqyqghnomjrktghf'
+    email_receiver = 'avocado.script@gmail.com'
+    subject = 'Script was run with avocado'
+    body = """
+    the script was run with avocado!"""
+    em = EmailMessage()
+    em['From'] = email_sender
+    em['To'] = email_receiver
+    em['Subject'] = subject
+    em.set_content(body)
+    context = ssl.create_default_context()
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+        smtp.login(email_sender, email_password)
+        smtp.sendmail(email_sender, email_receiver, em.as_string())
+
+
+def hello_world():
+    print("Hello world!")
+
+
 def Error():
     from rich import print
     print("[bold red]Sorry that task failed![/bold red]")
@@ -33,7 +69,7 @@ def progressbar100():
     import random
     from time import sleep
     from rich.progress import track
-    for step in track(range(10), description="[blue]Finding DataA[/blue]"):
+    for step in track(range(10), description="[blue]Starting...[/blue]"):
         sleep(1)
         step
 
@@ -51,3 +87,322 @@ def progressbar1000():
     for step in track(range(100), description="[blue]Finding DataA[/blue]"):
         sleep(1)
         step
+
+
+def face_normal():
+    print("...........................")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@¦---------------¦@@@@.")
+    print(".@@@@¦               ¦@@@@.")
+    print(".@@@@¦    %      %   ¦@@@@.")
+    print(".@@@@¦       !       ¦@@@@.")
+    print(".@@@@¦               ¦@@@@.")
+    print(".@@@@¦   (________)  ¦@@@@.")
+    print(".@@@@¦_______________¦@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print("...........................")
+    print("...........................")
+
+
+def face_happy():
+    print("...........................")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@¦---------------¦@@@@.")
+    print(".@@@@¦               ¦@@@@.")
+    print(".@@@@¦    %      %   ¦@@@@.")
+    print(".@@@@¦       !       ¦@@@@.")
+    print(".@@@@¦   ¦        ¦  ¦@@@@.")
+    print(".@@@@¦   ¦________¦  ¦@@@@.")
+    print(".@@@@¦_______________¦@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print("...........................")
+    print("...........................")
+
+
+def face_sad():
+    print("...........................")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@¦---------------¦@@@@.")
+    print(".@@@@¦               ¦@@@@.")
+    print(".@@@@¦    %      %   ¦@@@@.")
+    print(".@@@@¦       !       ¦@@@@.")
+    print(".@@@@¦    ________   ¦@@@@.")
+    print(".@@@@¦   (        )  ¦@@@@.")
+    print(".@@@@¦_______________¦@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print(".@@@@@@@@@@@@@@@@@@@@@@@@@.")
+    print("...........................")
+    print("...........................")
+
+
+def email_sender():
+    cleart()
+    email_sender = 'avocado.script@gmail.com'
+    email_password = 'mqyqghnomjrktghf'
+    email_receiver = input('What email do you want to send to? ')
+
+    if '@' not in email_receiver:
+        print("Sorry must contain '@'")
+        time.sleep(2)
+        menu()
+
+    if '@' in email_receiver:
+        if '.com' not in email_receiver:
+            print("Sorry must contain '.com'")
+            time.sleep(2)
+            menu()
+        if '.com' in email_receiver:
+            subq = input("What is the subject? ")
+            body = input('What is your message? ')
+            em = EmailMessage()
+            em['From'] = email_sender
+            em['To'] = email_receiver
+            em['Subject'] = subq
+            em.set_content(body)
+            context = ssl.create_default_context()
+            print("Sending...")
+            time.sleep(2)
+            with smtplib.SMTP_SSL('smtp.gmail.com', 465, context=context) as smtp:
+                smtp.login(email_sender, email_password)
+                smtp.sendmail(email_sender, email_receiver, em.as_string())
+            print("Sent!")
+            time.sleep(2)
+            menu()
+
+
+def codea1():
+    from rich import print
+    import os
+
+    def clrscr():
+        # Check if Operating System is Mac and Linux or Windows
+        if os.name == 'posix':
+            _ = os.system('clear')
+        else:
+          # Else Operating System is Windows (os.name = nt)
+            _ = os.system('cls')
+
+    clrscr()
+    print("Use the inst command for help...")
+    while True:
+        com = ["throw", "add", "mul", "div", "sub", "cleart", "inst"]
+        a1 = input(">>>")
+        # if a1 != com[1]:
+        # print("[red on white]syn Error! on line[/red on white] [blue]Unknown[/blue] [red]the the command[/red]",
+        # a1, "[red]does not exsist![/red]")
+        if a1 == "inst":
+            from time import sleep
+            print("throw is a function that will print the input that it is given")
+            print("div is short for divide and is used to devide num 1 and num 2")
+            print("add is used to add num 1 and num 2")
+            print("mul is short for multiply and is used to multiply num 1 and num 2")
+            print("sub is short for subtract and is used to subtract num 1 and num 2")
+            print("")
+            print("ok?...yes?")
+            des = input("yes no")
+            if des != "yes":
+                sleep(10)
+                codea1()
+            if des == "yes":
+                codea1()
+        if a1 == "throw":
+            throwa1 = input(">>>throw~")
+            print(throwa1)
+        if a1 == "add":
+            a2 = int(input(">>>add~"))
+            a3 = int(input(">>>add~"))
+            print(a2 + a3)
+        if a1 == "div":
+            a2 = int(input(">>>div~"))
+            a3 = int(input(">>>div~"))
+            print(a2 / a3)
+        if a1 == "mul":
+            a2 = int(input(">>>mul~"))
+            a3 = int(input(">>>mul~"))
+            print(a2 * a3)
+        if a1 == "sub":
+            a2 = int(input(">>>sub~"))
+            a3 = int(input(">>>sub~"))
+            print(a2 - a3)
+        if a1 == "cleart":
+            import os
+
+            def clrscr():
+                # Check if Operating System is Mac and Linux or Windows
+                if os.name == 'posix':
+                    _ = os.system('clear')
+                else:
+                 # Else Operating System is Windows (os.name = nt)
+                    _ = os.system('cls')
+                clrscr()
+
+
+def loginer():
+    cleart()
+    print("[blue]Enter your password[/blue]")
+    loginerpassword = input("")
+    if loginerpassword != "iona123.123":
+        print("Sorry, wrong pass word", "∞", "more attempts!")
+        loginer()
+
+    if loginerpassword == "iona123.123":
+        emailer()
+        menu()
+
+
+def cal():
+    cleart()
+    first_nummber = int(input(">>>What is the first nummber?"))
+    second_nummber = int(input(">>>what is the second nummber? "))
+    operation = input(">>>What operation do you want to use? ")
+
+    if operation == "+":
+        print(first_nummber + second_nummber)
+        time.sleep(2)
+        menu()
+
+    if operation == "-":
+        print(first_nummber - second_nummber)
+        time.sleep(2)
+        menu()
+
+    if operation == "/":
+        print(first_nummber / second_nummber)
+        time.sleep(2)
+        menu()
+
+    if operation == "*" or "x":
+        print(first_nummber * second_nummber)
+        time.sleep(2)
+        menu()
+
+    if operation != "+":
+        if operation != "-":
+            if operation != "/":
+                if operation != "x":
+                    if operation != "*":
+                        print("Sorry, That is not a option!")
+                        time.sleep(2)
+                        menu()
+
+
+def codea1():
+    from rich import print
+    import os
+
+    def clrscr():
+        # Check if Operating System is Mac and Linux or Windows
+        if os.name == 'posix':
+            _ = os.system('clear')
+        else:
+          # Else Operating System is Windows (os.name = nt)
+            _ = os.system('cls')
+
+    clrscr()
+    print("Use the inst command for help...")
+    while True:
+        com = ["throw", "add", "mul", "div", "sub", "cleart", "inst"]
+        a1 = input(">>>")
+        # if a1 != com[1]:
+        # print("[red on white]syn Error! on line[/red on white] [blue]Unknown[/blue] [red]the the command[/red]",
+        # a1, "[red]does not exsist![/red]")
+        if a1 == "inst":
+            from time import sleep
+            # here i explain the functions
+            print("throw is a function that will print the input that it is given")
+            print("div is short for divide and is used to devide num 1 and num 2")
+            print("add is used to add num 1 and num 2")
+            print("mul is short for multiply and is used to multiply num 1 and num 2")
+            print("sub is short for subtract and is used to subtract num 1 and num 2")
+            print("ex is short for exit and is used to leave this subprogram")
+            print("")
+            print("ok?...yes?")
+            des = input("yes no")
+            if des != "yes":
+                sleep(10)
+                codea1()
+            if des == "yes":
+                codea1()
+        if a1 == "throw":
+            throwa1 = input(">>>throw~")
+            print(throwa1)
+        if a1 == "add":
+            a2 = int(input(">>>add~"))
+            a3 = int(input(">>>add~"))
+            print(a2 + a3)
+        if a1 == "div":
+            a2 = int(input(">>>div~"))
+            a3 = int(input(">>>div~"))
+            print(a2 / a3)
+        if a1 == "mul":
+            a2 = int(input(">>>mul~"))
+            a3 = int(input(">>>mul~"))
+            print(a2 * a3)
+        if a1 == "sub":
+            a2 = int(input(">>>sub~"))
+            a3 = int(input(">>>sub~"))
+            print(a2 - a3)
+        if a1 == "cleart":
+            import os
+
+            def clrscr():
+                # Check if Operating System is Mac and Linux or Windows
+                if os.name == 'posix':
+                    _ = os.system('clear')
+                else:
+                 # Else Operating System is Windows (os.name = nt)
+                    _ = os.system('cls')
+                clrscr()
+
+        if a1 == "ex":
+            menu()
+
+
+def menu():
+    from rich.console import Console
+    from rich.table import Table
+
+    cleart()
+
+    table = Table(title="Where do we go?")
+
+    table.add_column("created", justify="right", style="cyan", no_wrap=True)
+    table.add_column("Location", style="magenta")
+
+    table.add_row("Feb 25 2023", "Email sender", "input 1")
+    table.add_row("Feb 26 2023", "Calculator", "input 2")
+    table.add_row("Mar 03 2023",
+                  "Script custom language A#", "input 3")
+    table.add_row("Dec 16, 2016", "Rogue One: A Star Wars Story",
+                  "$1,332,439,889")
+
+    console = Console()
+    console.print(table)
+    while True:
+        if keyboard.is_pressed('1'):
+            email_sender()
+        if keyboard.is_pressed('2'):
+            cal()
+        if keyboard.is_pressed('3'):
+            codea1()
+
+
+cleart()
+
+progressbar100()
+
+loginer()
